@@ -69,17 +69,19 @@ begin
   c := multiplierRecursive(a,b);
   finish_time := Clock;
   total_time := finish_time - start_time;
+
   Put("Recursively: ");
   Put(Integer'Image(a)); Put(" * "); Put(Integer'Image(b)); Put(" = "); Put(Integer'Image(c)); New_Line;
-  Put("Time Elapsed: "); Put(Duration'Image(total_time)); New_Line;
+  Put("Time Elapsed: "); Put(Duration'Image(total_time)); Put(" seconds "); New_Line;
 
   -- Call non recursive function, time and print result
   start_time := Clock;
   c := multiplierNonRecursive(a,b);
   finish_time := Clock;
   total_time := finish_time - start_time;
+  
   Put("Non Recursively: ");
   Put(Integer'Image(a)); Put(" * "); Put(Integer'Image(b)); Put(" = "); Put(Integer'Image(c)); New_Line;
-  Put("Time Elapsed: "); Put(Duration'Image(total_time)); New_Line;
+  Put("Time Elapsed: "); Put(Duration'Image(total_time)); Put(" seconds "); New_Line;
 
 end multiplier;
