@@ -2,12 +2,15 @@
 -- 1000139
 -- jaidelma@uoguelph.ca
 
+-- This program applies the Russian Peasant Multiplication algorithm
+-- in C, both recursively and non recursively.
 with Ada.Text_IO; use Ada.Text_IO;
 with ada.strings.unbounded; use ada.strings.unbounded;
 with ada.strings.unbounded.Text_IO; use ada.strings.unbounded.Text_IO;
 
 procedure multiplier is
 
+  -- This function applies the algorithm resursively
   function multiplierRecursive(a : integer; b : integer) return integer is
   begin
 
@@ -24,6 +27,7 @@ procedure multiplier is
     return 0;
   end multiplierRecursive;
 
+  -- This function applies the algorithm non resursively
   function multiplierNonRecursive(a : integer; b : integer) return integer is
     outA, outB, c : integer;
   begin
@@ -42,22 +46,27 @@ procedure multiplier is
     return c+outB;
   end multiplierNonRecursive;
 
-  -- Main
-  a,b,c : integer;
-  aInput, bInput : unbounded_string;
+  -- Main Function
+  a,b,c : integer; -- To store outputs
+  aInput, bInput : unbounded_string; -- To store inputs
 begin
+
+  -- Get input
   Put("Please enter your first number: ");
   Get_Line(aInput);
   Put("Please enter your second number: ");
   Get_Line(bInput);
 
+  -- Assign input to integer variables
   a := Integer'Value(To_String(aInput));
   b := Integer'Value(To_String(bInput));
 
+  -- Call recursive function and print result
   c := multiplierRecursive(a,b);
   Put("Recursively: ");
   Put(Integer'Image(a)); Put(" * "); Put(Integer'Image(b)); Put(" = "); Put(Integer'Image(c)); New_Line;
 
+  -- Call non recursive function and print result
   c := multiplierNonRecursive(a,b);
   Put("Non Recursively: ");
   Put(Integer'Image(a)); Put(" * "); Put(Integer'Image(b)); Put(" = "); Put(Integer'Image(c)); New_Line;

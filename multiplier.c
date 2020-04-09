@@ -1,10 +1,13 @@
-/*
-Joshua Aidelman
-1000139
-jaidelma@uoguelph.ca
-*/
+/* Joshua Aidelman
+  1000139
+  jaidelma@uoguelph.ca
+
+  This program applies the Russian Peasant Multiplication algorithm
+  in C, both recursively and non recursively. */
+
 #include <stdio.h>
 
+/* This function applies the algorithm resursively */
 int multiplierRecursive(int a, int b){
   if(a == 0){
     return 0;
@@ -22,6 +25,7 @@ int multiplierRecursive(int a, int b){
   return 0;
 }
 
+/* This function applies the algorithm non resursively */
 int multiplier(int a, int b){
 
   int c = 0;
@@ -37,18 +41,21 @@ int multiplier(int a, int b){
   return c+b;
 }
 
+/* Main function to run algorithm and get input */
 int main(){
-  int a, b, c;
+  int a, b, c; //To store values
 
+  //Get input from user
   printf("Please enter your first number: ");
   scanf("%d", &a);
   printf("Please enter your second number: ");
   scanf("%d", &b);
 
-
+  //Call recursive function and print result
   c = multiplierRecursive(a, b);
   printf("Recursively:\n%d * %d = %d\n", a, b, c);
 
+  //Call non-recursive function and print result
   c = multiplier(a, b);
   printf("Non Recursively:\n%d * %d = %d\n", a, b, c);
 
