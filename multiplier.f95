@@ -6,6 +6,7 @@
 ! in C, both recursively and non recursively.
 program multiplier
   integer :: a,b,c,aIn,bIn ! To store output and input
+  real :: start,finish ! To store time elapsed
 
   ! Get input from user
   write(*,*) 'Please enter your first number: '
@@ -17,18 +18,27 @@ program multiplier
   a = aIn
   b = bIn
 
-  ! Call recursive function and print result
+  ! Call recursive function, time, and print result
+  call cpu_time(start)
   c = multiplierRecursive(a,b)
+  call cpu_time(finish)
+
   write(*,*)  'Recursively: ', aIn, ' * ', bIn, ' = ', c
+  write(*,1000) finish-start
 
   ! Set variables to be sent to the function
   a = aIn
   b = bIn
 
-  ! Call non recursive function and print result
+  ! Call non recursive function, time, and print result
+  call cpu_time(start)
   c = multiplierNonRecursive(a,b)
+  call cpu_time(finish)
+  
   write(*,*)  'Non Recursively: ', aIn, ' * ', bIn, ' = ', c
+  write(*,1000) finish-start
 
+  1000 format('Time Elapsed: ', F10.8, ' seconds')
 end
 
 ! This function applies the algorithm non resursively
