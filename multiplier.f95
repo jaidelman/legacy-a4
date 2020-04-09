@@ -1,3 +1,7 @@
+! Joshua Aidelman
+! 1000139
+! jaidelma@uoguelph.ca
+
 program multiplier
   integer :: a,b,c,aIn,bIn
 

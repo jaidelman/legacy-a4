@@ -1,3 +1,8 @@
+/*
+Joshua Aidelman
+1000139
+jaidelma@uoguelph.ca
+*/
 #include <stdio.h>
 
 int multiplierRecursive(int a, int b){

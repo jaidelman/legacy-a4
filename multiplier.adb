@@ -1,3 +1,7 @@
+-- Joshua Aidelman
+-- 1000139
+-- jaidelma@uoguelph.ca
+
 with Ada.Text_IO; use Ada.Text_IO;
 with ada.strings.unbounded; use ada.strings.unbounded;
 with ada.strings.unbounded.Text_IO; use ada.strings.unbounded.Text_IO;
