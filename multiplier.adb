@@ -12,7 +12,7 @@ with Ada.Calendar; use Ada.Calendar;
 procedure multiplier is
 
   -- This function applies the algorithm resursively
-  function multiplierRecursive(a : integer; b : integer) return integer is
+  function multiplierRecursive(a : long_integer; b : long_integer) return long_integer is
   begin
 
     if a = 0 then
@@ -29,8 +29,8 @@ procedure multiplier is
   end multiplierRecursive;
 
   -- This function applies the algorithm non resursively
-  function multiplierNonRecursive(a : integer; b : integer) return integer is
-    outA, outB, c : integer;
+  function multiplierNonRecursive(a : long_integer; b : long_integer) return long_integer is
+    outA, outB, c : long_integer;
   begin
     outA := a;
     outB := b;
@@ -48,7 +48,7 @@ procedure multiplier is
   end multiplierNonRecursive;
 
   -- Main Function
-  a,b,c : integer; -- To store outputs
+  a,b,c : long_integer; -- To store outputs
   aInput, bInput : unbounded_string; -- To store inputs
   start_time, finish_time : Time; -- To store timing
   total_time : Duration;
@@ -61,8 +61,8 @@ begin
   Get_Line(bInput);
 
   -- Assign input to integer variables
-  a := Integer'Value(To_String(aInput));
-  b := Integer'Value(To_String(bInput));
+  a := Long_Integer'Value(To_String(aInput));
+  b := Long_Integer'Value(To_String(bInput));
 
   -- Call recursive function, time and print result
   start_time := Clock;
@@ -71,7 +71,7 @@ begin
   total_time := finish_time - start_time;
 
   Put("Recursively: ");
-  Put(Integer'Image(a)); Put(" * "); Put(Integer'Image(b)); Put(" = "); Put(Integer'Image(c)); New_Line;
+  Put(Long_Integer'Image(a)); Put(" * "); Put(Long_Integer'Image(b)); Put(" = "); Put(Long_Integer'Image(c)); New_Line;
   Put("Time Elapsed: "); Put(Duration'Image(total_time)); Put(" seconds "); New_Line;
 
   -- Call non recursive function, time and print result
@@ -79,9 +79,9 @@ begin
   c := multiplierNonRecursive(a,b);
   finish_time := Clock;
   total_time := finish_time - start_time;
-  
+
   Put("Non Recursively: ");
-  Put(Integer'Image(a)); Put(" * "); Put(Integer'Image(b)); Put(" = "); Put(Integer'Image(c)); New_Line;
+  Put(Long_Integer'Image(a)); Put(" * "); Put(Long_Integer'Image(b)); Put(" = "); Put(Long_Integer'Image(c)); New_Line;
   Put("Time Elapsed: "); Put(Duration'Image(total_time)); Put(" seconds "); New_Line;
 
 end multiplier;
